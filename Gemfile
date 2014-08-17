@@ -13,6 +13,9 @@ gem 'spring',        group: :development
 gem 'bootstrap-sass'
 gem 'high_voltage'
 gem 'thin'
+gem 'google-drive'
+gem 'activerecord-tableless'
+gem 'simple_form'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]
