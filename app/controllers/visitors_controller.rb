@@ -1,6 +1,19 @@
 class VisitorsController < ApplicationController
   def new
-    flash[:notice] = "Welcome"
-    flash[:alert] = "Access not allowed"
+    @visitor = Visitor.new
+  end
+  
+  def create
+    @visitor = Visitor.new(secure_params)
+    if visitor.valid?
+      flash[:notice] = "Chose #{@visitor.favorite}."
+      render :new
+    else
+      render :new
+    end
+  end
+  
+  def secure_params
+    params.require(:visitor).permit(:favorite, :comment)
   end
 end
