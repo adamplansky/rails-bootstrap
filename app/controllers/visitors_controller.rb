@@ -5,7 +5,8 @@ class VisitorsController < ApplicationController
   
   def create
     @visitor = Visitor.new(secure_params)
-    if visitor.valid?
+    if @visitor.valid?
+      @visitor.update_spreadsheet
       flash[:notice] = "Chose #{@visitor.favorite}."
       render :new
     else
